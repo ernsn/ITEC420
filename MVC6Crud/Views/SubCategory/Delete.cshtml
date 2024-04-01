@@ -1,0 +1,23 @@
+﻿@model SubCategory
+@{
+    ViewData["Title"] = "Delete Subcategory";
+}
+
+<div class="container shadow p-5">
+    <div class="row">
+        <h2>Delete Subcategory</h2>
+    </div>
+
+    <form method="post" asp-action="Delete">
+        <input asp-for="SubCategoryId" hidden />
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Subcategory ID : @Model.SubCategoryId</h5>
+                <p class="card-text">Subcategory : @Model.SubCategoryName</p>
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a asp-controller="SubCategories" asp-action="Index" class="btn btn-primary">Back To List</a>
+            </div>
+        </div>
+    </form>
+</div>

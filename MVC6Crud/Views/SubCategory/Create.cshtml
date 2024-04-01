@@ -1,0 +1,30 @@
+﻿@model SubCategory
+@{
+    ViewData["Title"] = "Create SubCategory";
+}
+
+<div class="container shadow p-5">
+    <div class="row">
+        <h1>Add SubCategory</h1>
+    </div>
+    <form method="post">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" asp-for="SubCategoryName" placeholder="Enter subcategory name" />
+            <label for="SubCategoryName">SubCategory Name</label>
+            <span asp-validation-for="SubCategoryName" class="alert-danger"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <select asp-for="CategoryId" class="form-select">
+                <option value="">-- Select Category --</option>
+                @foreach (var category in ViewBag.Categories)
+                {
+                    <option value="@category.CategoryId">@category.CategoryName</option>
+                }
+            </select>
+            <label for="CategoryId">Category</label>
+            <span asp-validation-for="CategoryId" class="alert-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-controller="SubCategories" asp-action="Index" class="btn btn-primary">Back</a>
+    </form>
+</div>
